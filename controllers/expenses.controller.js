@@ -3,7 +3,7 @@ const { Expense } = require('../models/expense.model.js')
 
 const expensesGetController = async (req, res) => {
     try {
-        const allExpenses = await Expense.find({});
+        const allExpenses = await Expense.find(req.query);
         // console.log(allExpenses)
         res.status(200).json({
             status: 'Success',
