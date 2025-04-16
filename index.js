@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const { router: expenseRouter} = require('./routes/expenses.routes.js');
+const { router: userRouter } = require('./routes/user.routes.js')
 // const bodyParser = require('body-parser');
 
 const app = express();
@@ -9,6 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 app.use('/expenses', expenseRouter);
+app.use('/user', userRouter);
 
 const connectDB = async () => {
     try {
